@@ -22,7 +22,9 @@ source activate mapping-env
 bwa index human_mito_ref.fasta
 
 #------------------------------------------------------------------------------
-
+```
+## Mapping 
+```bash
 #FULL SCRIPT: BWA MAPPING ----- 
 sbatch <scriptname>.sh
 #if you want to run job one from your array, the do 
@@ -38,8 +40,6 @@ sbatch --array=1 <scriptname>.sh
 
 export PATH=/home/marip3/miniconda3/bin/:$PATH
 source activate mapping-env
-
-#TESTING NOW TO RUN THE SCRIPT FROM THE SAME FOLDER ΑS THE TRIMMED FILES - IT WORKS !!!
 
 #make a list of samples present
 #ls -1 *_1.fq.gz | sed 's/_1.fq.gz//' > sample_list.txt # sample list needs to only have sample_name_trimmed
