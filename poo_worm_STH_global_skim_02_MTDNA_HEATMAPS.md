@@ -93,7 +93,7 @@ hum_mito_data_country_norm_ordered <- hum_mito_data_country_norm %>%
 ```
 
 ### Complex heatmap for faecal data
-```{r warning = FALSE, include = FALSE}
+```{r warning = FALSE}
 #STEP 4: COMPLEX HEATMAP FOR FAECAL DATA  ----
 
 #CONTAINS ONLY DATA THAT CAME FROM FAECAL METAGENOMES AND THEN ONLY THOSE FOR WHICH COLUMN SUMS WERE NOT O 
@@ -247,7 +247,7 @@ draw(hmap, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adj
 ```
 
 ### Complex heatmap for worm/egg data
-``` {r  warning = FALSE, include = FALSE}
+``` {r  warning = FALSE}
 #STEP 4: COMPLEX HEATMAP FOR WORMS/EGG DATA  ----
 #RUN AGAIN FROM TOP TO 90 LINE 
 ch2_df  <- hum_mito_data_country_norm_ordered %>%
