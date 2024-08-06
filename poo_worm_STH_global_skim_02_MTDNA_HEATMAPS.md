@@ -243,8 +243,9 @@ hmap <- Heatmap(
 
 )
 
+hmap
 # Output the heatmap
-draw(hmap, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
+#draw(hmap, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
 ```
 ![](./00_FIGURES/FAECAL_HEATMAP.png)
 
