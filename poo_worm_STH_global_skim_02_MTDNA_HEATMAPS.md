@@ -336,7 +336,7 @@ country_list_worm_samples_continent_transposed$continent <- factor(country_list_
 
 ```
 
-```{r hmap2, fig.height=14, fig.width=10, dpi=300}
+```{r heatmap, fig.height=14, fig.width=10, dpi=300, fig.path='figures/'}
 # Use the column_split argument with the modified country column
 hmap2 <- Heatmap(
   ch2_matrix_transposed,  # Use the transposed data matrix
@@ -367,3 +367,4 @@ hmap2 <- Heatmap(
 
 draw(hmap2, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
 ```
+![Heatmap](figures/heatmap-1.png)
