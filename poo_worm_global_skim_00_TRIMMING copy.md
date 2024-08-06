@@ -4,7 +4,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 ## Contents: 
 - Trimming of raw sequencing data on an HPC 
 
-```{r, engine = 'bash', eval = FALSE}
+```bash
 
 #TRIMMOMATIC ON HPC -----
 #global skim update: 4 samples, did not have the Phred33 scores, but Phred64, so I had to add the --phred64 flag on trimmomatic 
