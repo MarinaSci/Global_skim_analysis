@@ -212,7 +212,7 @@ X175_samples_non_zero_reads_countrynames_trasnposed$country <- factor(X175_sampl
 X175_samples_non_zero_reads_continentnames_transposed$continent <- factor(X175_samples_non_zero_reads_continentnames_transposed$continent, levels = unique(X175_samples_non_zero_reads_continentnames_transposed$continent))
 # Adjusted dimensions for the PDF file
 ``` 
-```{r heatmap1, fig.height=14, fig.width=10, dpi=300, fig.path='./00_FIGURES/' }
+```{r heatmap1, fig.height=14, fig.width=10, dpi=300, fig.path='00_FIGURES/'}
 
 # Use the column_split argument with the modified country column
 hmap <- Heatmap(
@@ -221,7 +221,7 @@ hmap <- Heatmap(
   show_row_names = F,
   col = col_fun,
   column_title_rot = 90,
-  row_title_rot = 90,
+  row_title_rot = 0,
   show_column_names = T,
   cluster_rows = FALSE,
   cluster_columns = FALSE,
@@ -240,7 +240,7 @@ hmap <- Heatmap(
     legend_width = unit(2, "cm")),  # Adjust legend width
   row_split = X175_samples_non_zero_reads_countrynames_trasnposed$country, 
   rect_gp = gpar(col = "white", lwd = 0.5) # THIS WILL CONTROL HOW FULL THE RECTANGLES ARE
-column_names_rot = 0
+
 )
 
 # Output the heatmap
@@ -338,7 +338,7 @@ country_list_worm_samples_continent_transposed$continent <- factor(country_list_
 
 ```
 
-```{r heatmap, fig.height=14, fig.width=10, dpi=300, fig.path='./00_FIGURES/'}
+```{r heatmap, fig.height=14, fig.width=10, dpi=300, fig.path='00_FIGURES/'}
 # Use the column_split argument with the modified country column
 hmap2 <- Heatmap(
   ch2_matrix_transposed,  # Use the transposed data matrix
@@ -346,7 +346,7 @@ hmap2 <- Heatmap(
   show_row_names = F,
   col = col_fun2,
   column_title_rot = 90,
-  row_title_rot = 90,
+  row_title_rot = 0,
   show_column_names = T,
   cluster_rows = FALSE,
   cluster_columns = FALSE,
