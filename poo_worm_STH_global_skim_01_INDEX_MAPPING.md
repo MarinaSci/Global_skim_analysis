@@ -28,7 +28,7 @@ bwa index human_mito_ref.fasta
 ```
 ## Mapping 
 - used BWA MEM 
-- 
+
 ```bash
 #FULL SCRIPT: BWA MAPPING ----- 
 sbatch <scriptname>.sh
