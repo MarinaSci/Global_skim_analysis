@@ -36,5 +36,6 @@ LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 #adapters file contains ALL adapters out there 
 
 echo "I AM DONE TRIMMING!"
+#test
 
 ```
