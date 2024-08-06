@@ -212,7 +212,7 @@ X175_samples_non_zero_reads_countrynames_trasnposed$country <- factor(X175_sampl
 X175_samples_non_zero_reads_continentnames_transposed$continent <- factor(X175_samples_non_zero_reads_continentnames_transposed$continent, levels = unique(X175_samples_non_zero_reads_continentnames_transposed$continent))
 # Adjusted dimensions for the PDF file
 ``` 
-```{r heatmap1, fig.height=14, fig.width=10, dpi=300}
+```{r heatmap1, fig.height=14, fig.width=10, dpi=300, fig.path='./00_FIGURES/' }
 
 # Use the column_split argument with the modified country column
 hmap <- Heatmap(
@@ -239,12 +239,14 @@ hmap <- Heatmap(
     legend_direction = "vertical",  # Keep legend orientation vertical
     legend_width = unit(2, "cm")),  # Adjust legend width
   row_split = X175_samples_non_zero_reads_countrynames_trasnposed$country, 
-  rect_gp = gpar(col = "white", lwd = 0.5), # THIS WILL CONTROL HOW FULL THE RECTANGLES ARE
+  rect_gp = gpar(col = "white", lwd = 0.5) # THIS WILL CONTROL HOW FULL THE RECTANGLES ARE
+column_names_rot = 0
 )
 
 # Output the heatmap
 draw(hmap, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
 ```
+![Heatmap](./00_FIGURES/FAECAL_HEATMAP.png)
 
 ### Complex heatmap for worm/egg data
 ``` {r  warning = FALSE}
@@ -336,7 +338,7 @@ country_list_worm_samples_continent_transposed$continent <- factor(country_list_
 
 ```
 
-```{r heatmap, fig.height=14, fig.width=10, dpi=300, fig.path='figures/'}
+```{r heatmap, fig.height=14, fig.width=10, dpi=300, fig.path='./00_FIGURES/'}
 # Use the column_split argument with the modified country column
 hmap2 <- Heatmap(
   ch2_matrix_transposed,  # Use the transposed data matrix
@@ -367,4 +369,4 @@ hmap2 <- Heatmap(
 
 draw(hmap2, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
 ```
-![Heatmap](figures/heatmap-1.png)
+![Heatmap](./00_FIGURES/WORM_EGG_HEATMAP.png)
