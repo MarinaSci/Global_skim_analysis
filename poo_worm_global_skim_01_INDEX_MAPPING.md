@@ -5,6 +5,9 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 - Indexing reference files 
 - Mapping of trimmed paired reads to indexed mtDNA reference files
 
+## Indexing reference file
+- all mitogenomes were concatenated in the same file 
+
 ```bash
 
 # FULL SCRIPT: INDEX
@@ -24,6 +27,8 @@ bwa index human_mito_ref.fasta
 #------------------------------------------------------------------------------
 ```
 ## Mapping 
+- used BWA MEM 
+- 
 ```bash
 #FULL SCRIPT: BWA MAPPING ----- 
 sbatch <scriptname>.sh
@@ -100,7 +105,7 @@ echo "calculate some basic stats"
 samtools idxstats ${MAPPING_DIR}/${SAMPLE}_filtered_CIGAR_final.bam > ${MAPPING_DIR}/${SAMPLE}_final.txt
 
 #calculate depth per base - no longer needed
-#samtools depth ${MAPPING_DIR}/${SAMPLE}_uniq_sorted.bam > ${MAPPING_DIR}/deduped_${SAMPLE}.coverage #don't need this any more, as we are not working with conse>
+#samtools depth ${MAPPING_DIR}/${SAMPLE}_uniq_sorted.bam > ${MAPPING_DIR}/deduped_${SAMPLE}.coverage #don't need this any more
 
 mv *.err  ${MAPPING_DIR}/ERR_FILES
 mv *.out ${MAPPING_DIR}/OUT_FILES
