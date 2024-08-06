@@ -19,7 +19,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 #SBATCH --array=1-4
 
 export PATH=/home/marip3/miniconda3/bin/:$PATH
-source activate mapping-env
+source activate mapping-env 
 
 #make a list of samples present
 ls -1 *_1.fq.gz | sed 's/_1.fq.gz//' > sample_list.txt
