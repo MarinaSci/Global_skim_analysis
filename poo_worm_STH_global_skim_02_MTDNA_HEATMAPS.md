@@ -7,7 +7,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 - Further beautifications done in Illustrator 
 - Need to make a matrix that has rows of species.. columns of samples ands values as normalised reads 
 
-``` {r  warning = FALSE, message = FALSE}
+``` {r  warning = FALSE,message = FALSE}
 library(tidyverse)
 library(ComplexHeatmap)
 library(gplots)
