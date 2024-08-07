@@ -88,7 +88,7 @@ worm_egg_plot <- ggplot() +
 
 
 #CALL THEM TOGETHER 
-ALL <- faecal_plot + worm_egg_plot 
+ALL <- faecal_plot | worm_egg_plot 
 print(ALL)
 #ggsave("Genome_skimming_countries_FAECAL_WORM_MAP_FROM_ORIGINAL_SAMPLE_SIZES.pdf", useDingbats = FALSE, width = 8, height = 5, units = "in")
 
