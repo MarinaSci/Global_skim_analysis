@@ -409,6 +409,7 @@ samples <- test_w_clean_l_2_w_forupset3
 species <- colnames(samples)[2:8] #change this depending hwo many species you have
 
 ```
+# Faecal data - ComplexUpset Plot
 ```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL, fig.path='./00_FIGURES/'}
 png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", height = 5, width = 5, units = "in", res = 300)
 
@@ -454,6 +455,7 @@ samples_worms <- ch2_df_w_clean_l_2_w_forupset3
 species_worms <- colnames(samples_worms)[2:8] #change this dependig hwo many species you have
 
 ```
+# Worm/egg data - ComplexUpset Plot
 
 ```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS, fig.path='./00_FIGURES/'}
 png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", height = 5, width = 5, units = "in", res = 300)
