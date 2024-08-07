@@ -408,8 +408,8 @@ samples <- test_w_clean_l_2_w_forupset3
 species <- colnames(samples)[2:8] #change this depending hwo many species you have
 
 ```
-```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL, fig.path='./00_FIGURES/}
-png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", height = 14, width = 10, units = "in", res = 300)
+```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL, fig.path='./00_FIGURES/'}
+png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", height = 5, width = 5, units = "in", res = 300)
 
 #set up same y limits between the two plots
 UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
@@ -439,7 +439,7 @@ ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", width = 250, height 
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png)
 
 
-``` {r  warning = FALSE'}
+``` {r  warning = FALSE}
 
 ####WORM DATA
 # I don't need the below for the upset plot, but it's easier to calculate the number of posiitves if I convert he dataset to 0 1 matrix
@@ -454,7 +454,8 @@ species_worms <- colnames(samples_worms)[2:8] #change this dependig hwo many spe
 
 ```
 
-```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS, fig.path='./00_FIGURES/}
+```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS, fig.path='./00_FIGURES/'}
+png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", height = 5, width =5, units = "in", res = 300)
 
 #UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
 #  samples_worms, species_worms, 
