@@ -3,6 +3,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 
 ## Contents: 
 - R code to create vertical heatmaps with complex heatmap 
+- R code to create ComplexUpset plots to show co-infections
 - Figure 1 (panels c & d) on paper; Supplementary Figure 1 as well. Doi to follow soon 
 - Further beautifications done in Illustrator 
 - Need to make a matrix that has rows of species.. columns of samples ands values as normalised reads 
