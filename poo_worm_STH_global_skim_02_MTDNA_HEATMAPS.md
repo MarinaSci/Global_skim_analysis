@@ -484,5 +484,16 @@ ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.pdf", width = 250, height = 
 ```
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.pdf)
 
+```R
+if (!dir.exists("00_FIGURES")) {
+    dir.create("00_FIGURES")
+}
 
+# Generate a simple plot
+p <- ggplot(mtcars, aes(mpg, wt)) + geom_point()
+
+# Try saving it
+ggsave("00_FIGURES/test_plot.pdf", plot = p)
+
+```
 
