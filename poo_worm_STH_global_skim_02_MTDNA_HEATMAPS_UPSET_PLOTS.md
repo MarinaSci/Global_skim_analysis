@@ -433,7 +433,7 @@ UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
 #https://support.bioconductor.org/p/103113/
 #how to combine the plots!!!!!!!
 UPSET_PLOT_ALL_SPECIES_FAECAL
-ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", width = 250, height = 100, units = "mm")
+ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", width = 5, height = 5, units = "in")
 
 ```
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png)
@@ -455,7 +455,7 @@ species_worms <- colnames(samples_worms)[2:8] #change this dependig hwo many spe
 ```
 
 ```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS, fig.path='./00_FIGURES/'}
-png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", height = 5, width =5, units = "in", res = 300)
+png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", height = 5, width = 5, units = "in", res = 300)
 
 #UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
 #  samples_worms, species_worms, 
@@ -481,7 +481,7 @@ UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
   )
 
 UPSET_PLOT_ALL_SPECIES_WORM_DATA
-ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", width = 250, height = 100, units = "mm")
+ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", width = 5, height = 5, units = "in")
 
 ```
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png)
