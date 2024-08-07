@@ -3,7 +3,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 
 ## Contents: 
 - R code to create vertical heatmaps with complex heatmap 
-- Figure 1 on paper; panels c & d; doi to follow soon 
+- Figure 1 (panels c & d) on paper; Supplementary Figure 1 as well. Doi to follow soon 
 - Further beautifications done in Illustrator 
 - Need to make a matrix that has rows of species.. columns of samples ands values as normalised reads 
 
@@ -14,6 +14,11 @@ library(gplots)
 library(ComplexHeatmap)
 library(circlize)
 library(readxl)
+#install.packages("UpSetR")
+#library(UpSetR) DO NOT LOAD THIS, IT WILL CLASH WITH THE COMPLEX UPSET
+library(ComplexUpset)
+library(patchwork)
+
 #STEP 1: import the file with the mito stats ----
 hum_mito_raw_counts <- read.table("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/02_MITOGENOME_MAPPING/POST_CIGAR_FILTER_DATA/ALL_STATS_FILTERED_n1000.txt", sep="\t", header=F )
 #ALL_STATS_FILTERED_n1000.txt: updated with CIGAR filtering after picard MarkDuplicates and after adding more Trichuris samples. 
@@ -379,3 +384,104 @@ dev.off()
 
 ```
 ![Heatmap](./00_FIGURES/WORM_EGG_HEATMAP.png)
+
+
+# ComplexUpset Plots to show co-infections
+``` {r  warning = FALSE}
+
+#####POO DATA 
+#I need to have the species as main columns and the observations as rows in order for that to work
+#test_w_clean_l_2_w_ordered dataset looking like this:
+#species    BEN001_trimmed BEN002_trimmed BEN003_trimmed BEN005_trimmed BEN006_trimmed BEN007_trimmed BEN008_trimmed
+#  <chr>               <dbl>          <dbl>          <dbl>          <dbl>          <dbl>          <dbl>          <dbl>
+#1 Ancylosto…            0              0              0               0              0              0              0 
+#2 Ascaris l…           24.3           33.7           21.4           335.           205.           196.           108.
+
+test_w_clean_l_2_w_forupset <- pivot_longer(test_w_clean_l_2_w_ordered, names_to = "sample_id", cols = 2:ncol(test_w_clean_l_2_w))
+test_w_clean_l_2_w_forupset <- test_w_clean_l_2_w_forupset %>% pivot_wider(names_from = species, values_from = value)
+#now convert anything > 0 to 1, because UPSETR wants a matrix of 0s and 1s
+test_w_clean_l_2_w_forupset2 <- test_w_clean_l_2_w_forupset %>% mutate_if(is.numeric, ~1 * (. != 0))
+test_w_clean_l_2_w_forupset3 <- data.frame(test_w_clean_l_2_w_forupset2)
+
+#https://krassowski.github.io/complex-upset/articles/Examples_R.html#adjusting-the-default-themes
+samples <- test_w_clean_l_2_w_forupset3
+species <- colnames(samples)[2:8] #change this depending hwo many species you have
+
+```
+```{r FAECAL_UPSET_PLOT, fig.path='./00_FIGURES/'}
+png(filename = "00_FIGURES/FAECAL_UPSET_PLOT.png", height = 14, width = 10, units = "in", res = 300)
+
+
+#set up same y limits between the two plots
+UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
+  samples, species, 
+  base_annotations = list(
+    'Intersection size' = (
+      intersection_size(text = list(vjust = -0.1, hjust = -0.1, angle = 45)) +
+        scale_y_continuous(limits = c(0, 100)) # Set y-axis limits here
+    )
+  ),
+  min_size = 0,
+  width_ratio = 0.1,
+  set_sizes = upset_set_size(
+    geom = geom_bar(fill = 'lightblue') # Customize set size bar color for second set
+  )
+)
+
+
+#FOR THE ABOVE TO WORK, DON'T LOAD THE library(UpSetR)!!! You need to only load the library(ComplexUpset)
+#Otherwise they clash !!
+#https://support.bioconductor.org/p/103113/
+#how to combine the plots!!!!!!!
+
+```
+
+![UpsetPlot](./00_FIGURES/FAECAL_UPSET_PLOT.png)
+
+``` {r  warning = FALSE}
+
+####WORM DATA
+# I don't need the below for the upset plot, but it's easier to calculate the number of posiitves if I convert he dataset to 0 1 matrix
+ch2_df_w_clean_l_2_w_forupset <- pivot_longer(ch2_df_w_clean_l_2_w2, names_to = "sample_id", cols = 2:ncol(ch2_df_w_clean_l_2_w2))
+ch2_df_w_clean_l_2_w_forupset <- ch2_df_w_clean_l_2_w_forupset %>% pivot_wider(names_from = species, values_from = value)
+#now convert anything > 0 to 1, because UPSETR wants a matrix of 0s and 1s
+ch2_df_w_clean_l_2_w_forupset2 <- ch2_df_w_clean_l_2_w_forupset %>% mutate_if(is.numeric, ~1 * (. != 0))
+ch2_df_w_clean_l_2_w_forupset3 <- data.frame(ch2_df_w_clean_l_2_w_forupset2)
+
+samples_worms <- ch2_df_w_clean_l_2_w_forupset3
+species_worms <- colnames(samples_worms)[2:8] #change this dependig hwo many species you have
+
+```
+
+```{r WORM_UPSET_PLOT, fig.path='./00_FIGURES/'}
+png(filename = "00_FIGURES/WORM_UPSET_PLOT.png", height = 14, width = 10, units = "in", res = 300)
+
+#UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
+#  samples_worms, species_worms, 
+#  base_annotations=list('Intersection size'=intersection_size(text=list( vjust=-0.1,hjust=-0.1,angle=45))),min_size=0, width_ratio=0.1)
+#HAVE CHECKED THE ABOVE, ALSO WORKS!
+
+#try to set the same y limits between the two plots
+UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
+    samples_worms, species_worms, 
+    base_annotations = list(
+      'Intersection size' = (
+        intersection_size(text = list(vjust = -0.1, hjust = -0.1, angle = 45)) 
+        + scale_y_continuous(limits = c(0, 100)) # Set y-axis limits here
+      )
+    ),
+    min_size = 0,
+    width_ratio = 0.1,
+    set_sizes = (
+      upset_set_size(geom = geom_bar(fill = 'lightblue') 
+         # Customize set size color
+      )
+    )
+  )
+  
+
+```
+![UpsetPlot](./00_FIGURES/WORM_UPSET_PLOT.png)
+
+
+
