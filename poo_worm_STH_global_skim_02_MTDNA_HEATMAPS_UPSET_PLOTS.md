@@ -409,7 +409,7 @@ species <- colnames(samples)[2:8] #change this depending hwo many species you ha
 
 ```
 ```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL, fig.path='./00_FIGURES/'}
-png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", height = 10, width = 10, units = "in", res = 300)
+png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", height = 5, width = 5, units = "in", res = 300)
 
 #set up same y limits between the two plots
 UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
@@ -432,7 +432,6 @@ UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
 #Otherwise they clash !!
 #https://support.bioconductor.org/p/103113/
 #how to combine the plots!!!!!!!
-#ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", width = 5, height = 5, units = "in")
 
 print(UPSET_PLOT_ALL_SPECIES_FAECAL)
 dev.off()
