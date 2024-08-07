@@ -387,7 +387,7 @@ dev.off()
 
 
 # ComplexUpset Plots to show co-infections
-``` {r  warning = FALSE}
+``` {r  warning = FALSE, fig.path='./00_FIGURES/'}
 
 #####POO DATA 
 #I need to have the species as main columns and the observations as rows in order for that to work
@@ -438,7 +438,7 @@ ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.pdf", width = 250, height 
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.pdf)
 
 
-``` {r  warning = FALSE}
+``` {r  warning = FALSE, fig.path='./00_FIGURES/'}
 
 ####WORM DATA
 # I don't need the below for the upset plot, but it's easier to calculate the number of posiitves if I convert he dataset to 0 1 matrix
