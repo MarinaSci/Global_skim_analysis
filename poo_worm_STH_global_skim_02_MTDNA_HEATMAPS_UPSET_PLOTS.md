@@ -465,7 +465,7 @@ png(filename = "00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", hei
 #try to set the same y limits between the two plots
 UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
     samples_worms, species_worms, 
-    base_annotations = list(
+    base_annotations = list( 
       'Intersection size' = (
         intersection_size(text = list(vjust = -0.1, hjust = -0.1, angle = 45)) 
         + scale_y_continuous(limits = c(0, 100)) # Set y-axis limits here
