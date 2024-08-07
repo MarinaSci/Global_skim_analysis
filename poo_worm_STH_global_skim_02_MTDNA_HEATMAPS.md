@@ -246,7 +246,7 @@ hmap <- Heatmap(
 # Output the heatmap
 draw(hmap, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
 ```
-![Heatmap](./00_FIGURES/FAECAL_HEATMAP.png)
+![Heatmap](./00_FIGURES/FAECAL_HEATMAP-1.png)
 
 ### Complex heatmap for worm/egg data
 ``` {r  warning = FALSE}
@@ -369,4 +369,4 @@ hmap2 <- Heatmap(
 
 draw(hmap2, heatmap_legend_side = "right", show_annotation_legend = FALSE)  # Adjust legend position
 ```
-![Heatmap](./00_FIGURES/WORM_EGG_HEATMAP.png)
+![Heatmap](./00_FIGURES/WORM_EGG_HEATMAP-1.png)
