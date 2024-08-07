@@ -344,7 +344,7 @@ hmap2 <- Heatmap(
   ch2_matrix_transposed,  # Use the transposed data matrix
   name = "normalised reads",
   show_row_names = F,
-  col = col_fun2,
+  col = col_fun2, 
   column_title_rot = 90,
   row_title_rot = 0,
   show_column_names = T,
