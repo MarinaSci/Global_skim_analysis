@@ -349,7 +349,7 @@ hmap2 <- Heatmap(
   row_title_rot = 0,
   show_column_names = T,
   cluster_rows = FALSE,
-  cluster_columns = FALSE,
+  cluster_columns = FALSE, 
   show_column_dend = FALSE,
   border_gp = gpar(col = "lightgrey"),
   show_row_dend = FALSE,
