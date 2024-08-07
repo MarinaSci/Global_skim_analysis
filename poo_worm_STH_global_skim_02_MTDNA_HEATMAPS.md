@@ -408,7 +408,7 @@ samples <- test_w_clean_l_2_w_forupset3
 species <- colnames(samples)[2:8] #change this depending hwo many species you have
 
 ```
-```{r FAECAL_UPSET_PLOT, fig.path='./00_FIGURES/'}
+```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL}
 
 #set up same y limits between the two plots
 UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
@@ -433,6 +433,7 @@ UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
 #how to combine the plots!!!!!!!
 
 ```
+![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.pdf)
 
 
 ``` {r  warning = FALSE}
@@ -450,7 +451,7 @@ species_worms <- colnames(samples_worms)[2:8] #change this dependig hwo many spe
 
 ```
 
-```{r WORM_UPSET_PLOT, fig.path='./00_FIGURES/'}
+```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS}
 
 #UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
 #  samples_worms, species_worms, 
@@ -481,8 +482,7 @@ UPSET_PLOT_ALL_SPECIES_FAECAL
 ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.pdf", width = 250, height = 100, units = "mm")
 
 ```
-![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.pdf)
-![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.pdf)
+![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.pdf)
 
 
 
