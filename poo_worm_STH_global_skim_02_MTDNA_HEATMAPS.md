@@ -3,7 +3,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 
 ## Contents: 
 - R code to create vertical heatmaps with complex heatmap 
-- Figure 1 on paper; doi to follow soon 
+- Figure 1 on paper; panels c & d; doi to follow soon 
 - Further beautifications done in Illustrator 
 - Need to make a matrix that has rows of species.. columns of samples ands values as normalised reads 
 
