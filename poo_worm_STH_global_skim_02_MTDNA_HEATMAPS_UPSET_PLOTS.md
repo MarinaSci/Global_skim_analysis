@@ -433,8 +433,9 @@ UPSET_PLOT_ALL_SPECIES_FAECAL <- upset(
 #https://support.bioconductor.org/p/103113/
 #how to combine the plots!!!!!!!
 UPSET_PLOT_ALL_SPECIES_FAECAL
-ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", width = 5, height = 5, units = "in")
+#ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png", width = 5, height = 5, units = "in")
 
+dev.off()
 ```
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL.png)
 
@@ -481,8 +482,8 @@ UPSET_PLOT_ALL_SPECIES_WORM_DATA <- upset(
   )
 
 UPSET_PLOT_ALL_SPECIES_WORM_DATA
-ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", width = 5, height = 5, units = "in")
-
+#ggsave("SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png", width = 5, height = 5, units = "in")
+dev.off()
 ```
 ![UpsetPlot](./00_FIGURES/SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_WORMSEGGS.png)
 
