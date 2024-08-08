@@ -94,4 +94,4 @@ QUALITY_PLOTS <- ggplot(all_mito_SNPs_bcftools_df_3_filtered, aes (x = QUAL)) +
   ggsave("./00_FIGURES/FiguerXX_Quantile_quality_plots_bcftools_species_only_SNPs_NOMINIMUMALLELEFREQUENCY_10_95_Quantile.pdf", width=170, height=100, units="mm")
 
 ```
-![QUALITY_PLOTS](./00_FIGURES/FiguerXX_Quantile_quality_plots_bcftools_species_only_SNPs_NOMINIMUMALLELEFREQUENCY_10_95_Quantile.pdf)
+![QUALITY_PLOTS](./00_FIGURES/QUALITY_PLOTS.png)
