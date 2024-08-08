@@ -82,7 +82,7 @@ d2 <- all_mito_SNPs_bcftools_df_3_filtered2 %>%
 ```
 
 ```{r QUALITY_PLOTS ,fig.path='./00_FIGURES/'}
-ggplot(all_mito_SNPs_bcftools_df_3_filtered, aes (x = QUAL)) +
+QUALITY_PLOTS <- ggplot(all_mito_SNPs_bcftools_df_3_filtered, aes (x = QUAL)) +
   geom_histogram(color = 'black') +
   #geom_density(alpha=.3) +
   geom_vline(data = d2, aes(xintercept = quant10, color="quant10")) +
@@ -90,6 +90,7 @@ ggplot(all_mito_SNPs_bcftools_df_3_filtered, aes (x = QUAL)) +
   scale_color_manual("Quantile", values = c(quant10 = "blue", quant95 = "red"), labels= c("quant10","quant95"))+
   facet_wrap(CHROM~.,scales="free")+
   ggtitle("10th/95th quantile for all STH species, QUAL scores from  \n all_samples_bcftools_mtDNA_coding_genes_NOMIMIMUMALLELEFREQUENCY.recode.vcf")
+  QUALITY_PLOTS
   ggsave("./00_FIGURES/FiguerXX_Quantile_quality_plots_bcftools_species_only_SNPs_NOMINIMUMALLELEFREQUENCY_10_95_Quantile.pdf", width=170, height=100, units="mm")
 
 ```
