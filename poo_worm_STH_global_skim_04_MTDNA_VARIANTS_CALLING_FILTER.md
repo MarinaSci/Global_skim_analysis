@@ -81,7 +81,11 @@ d2 <- all_mito_SNPs_bcftools_df_3_filtered2 %>%
 
 ```
 
+- kept only *Ascaris*, *Trichuris* and *Necator*; Did not get more positives for *Schistosoma* (other than the published) and only two countries for *Strongyloides*
+
 ```{r QUALITY_PLOTS ,fig.path='./00_FIGURES/'}
+png(filename = "00_FIGURES/QUALITY_PLOTS.png", height = 5, width = 8, units = "in", res = 300)
+
 QUALITY_PLOTS <- ggplot(all_mito_SNPs_bcftools_df_3_filtered, aes (x = QUAL)) +
   geom_histogram(color = 'black') +
   #geom_density(alpha=.3) +
@@ -90,8 +94,10 @@ QUALITY_PLOTS <- ggplot(all_mito_SNPs_bcftools_df_3_filtered, aes (x = QUAL)) +
   scale_color_manual("Quantile", values = c(quant10 = "blue", quant95 = "red"), labels= c("quant10","quant95"))+
   facet_wrap(CHROM~.,scales="free")+
   ggtitle("10th/95th quantile for all STH species, QUAL scores from  \n all_samples_bcftools_mtDNA_coding_genes_NOMIMIMUMALLELEFREQUENCY.recode.vcf")
-  QUALITY_PLOTS
-  ggsave("./00_FIGURES/FiguerXX_Quantile_quality_plots_bcftools_species_only_SNPs_NOMINIMUMALLELEFREQUENCY_10_95_Quantile.pdf", width=170, height=100, units="mm")
 
+print(QUALITY_PLOTS)
+  #ggsave("./00_FIGURES/FiguerXX_Quantile_quality_plots_bcftools_species_only_SNPs_NOMINIMUMALLELEFREQUENCY_1#0_95_Quantile.pdf", width=170, height=100, units="mm")
+
+dev.off()
 ```
 ![QUALITY_PLOTS](./00_FIGURES/QUALITY_PLOTS.png)
