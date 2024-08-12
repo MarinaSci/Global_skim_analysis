@@ -134,7 +134,9 @@ ASUUM_ALL_unique_countries_indv <- union(ASUUM_ALL_unique_countries_1_indv, ASUU
 
 ```{r POPGEN_ASUUM_POOLS_INDV_HEATMAP_DXY,  fig.path='./00_FIGURES/' }
 
-png(filename = "00_FIGURES/POPGEN_ASUUM_POOLS_INDV_HEATMAP_DXY.png", height = 7, width = 10, units = "in", res = 300)
+png(filename = "00_FIGURES/POPGEN_ASUUM_POOLS_INDV_HEATMAP_DXY.png", height = 7, width = 8, units = "in", res = 300)
+
+
 ASUUM_ALL_DXY_POOLS <- ggplot(ASUUM_DXY_simplified_pools, aes(x = factor(country_2, levels = ASUUM_ALL_unique_countries_pools), y = factor(country_1, levels = ASUUM_ALL_unique_countries_pools), fill = mean_dxy_per_country_combo, label = round(mean_dxy_per_country_combo, 4))) +
   geom_tile(color = "white") +
   geom_text(color = "white", size = 3) + 
@@ -170,6 +172,7 @@ ASUUM_ALL_DXY_INDV <- ggplot(ASUUM_DXY_simplified_indv, aes(x = factor(country_2
 ASUUM_BOTH <- ASUUM_ALL_DXY_INDV / ASUUM_ALL_DXY_POOLS
 
 print(ASUUM_BOTH)
+
 dev.off()
 
 ```
