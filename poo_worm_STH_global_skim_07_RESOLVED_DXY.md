@@ -169,9 +169,9 @@ ASUUM_ALL_DXY_INDV <- ggplot(ASUUM_DXY_simplified_indv, aes(x = factor(country_2
  # facet_grid(~sample_type) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust=1))
 #
-ASUUM_BOTH <- (ASUUM_ALL_DXY_INDV / ASUUM_ALL_DXY_POOLS)
+ASUUM_BOTH <- ASUUM_ALL_DXY_INDV / ASUUM_ALL_DXY_POOLS
 
-print(ASUUM_BOTH)
+print(ASUUM_BOTH) 
 
 dev.off()
 
