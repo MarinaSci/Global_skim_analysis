@@ -149,7 +149,7 @@ ASUUM_ALL_DXY_POOLS <- ggplot(ASUUM_DXY_simplified_pools, aes(x = factor(country
   labs(title = "ASUUM ALL (pools/indiv) DXY MEAN PER COUNTRY COMBO",
        x = "Country 2",
        y = "Country 1")+
-  facet_grid(~sample_type) +
+ # facet_grid(~sample_type) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust=1))
 #
 
@@ -166,7 +166,7 @@ ASUUM_ALL_DXY_INDV <- ggplot(ASUUM_DXY_simplified_indv, aes(x = factor(country_2
   labs(title = "ASUUM ALL (pools/indiv) DXY MEAN PER COUNTRY COMBO",
        x = "Country 2",
        y = "Country 1")+
-  facet_grid(~sample_type) +
+ # facet_grid(~sample_type) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust=1))
 #
 ASUUM_BOTH <- ASUUM_ALL_DXY_INDV / ASUUM_ALL_DXY_POOLS
