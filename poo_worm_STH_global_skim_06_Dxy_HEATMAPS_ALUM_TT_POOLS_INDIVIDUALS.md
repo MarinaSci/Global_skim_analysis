@@ -235,6 +235,7 @@ ALUM_ALL_DXY_INDV_PLOT <- ggplot(ALUM_DXY_simplified_indv, aes(x = factor(countr
 ALUM_BOTH <- ALUM_ALL_DXY_POOLS_PLOT / ALUM_ALL_DXY_INDV_PLOT
 
 print(ALUM_BOTH)
+dev.off()
 ```
 ![ALUM_ALL_DXY_POOLS_INDIVIDUALS.png](00_FIGURES/ALUM_ALL_DXY_POOLS_INDIVIDUALS.png)
 *Trichuris trichiura* Dxy heatmaps 
