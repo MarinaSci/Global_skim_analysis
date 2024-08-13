@@ -234,7 +234,7 @@ INDV_Pi_ALL <- Pi_function("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/
 POOLS_Pi_ALL <- Pi_function("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/04_VARIANT_CALLING/01_MITOGENOME_VARS/13_POPGEN_DATA_FOR_FIGURES/02_ASUUM_US_TT_DATA/POOLS_Pi_ASUUM_TT.txt")
 
 
-png(filename = "00_FIGURES/FIG2_POPGEN_part_pi_diversity_ASUUM_TT_jitter.png", height = 5, width = 6, units = "in", res = 300)
+png(filename = "00_FIGURES/FIG2_POPGEN_part_pi_diversity_ASUUM_TT_jitter.png", height = 2, width = 6, units = "in", res = 300)
 
 
 INDV_Pi_plot <- ggplot(data = INDV_Pi_ALL, aes(x = country, y = pi, color= chrom)) +
