@@ -263,7 +263,7 @@ POOLS_Pi_plot <- ggplot(data = POOLS_Pi_ALL, aes(x = country, y = pi, color= chr
 BOTH_Pi <- INDV_Pi_plot + POOLS_Pi_plot
 
 print(BOTH_Pi)
-blah <- dev.off()
+dev.off()
 
 ```
 ![FIG2_POPGEN_part_pi_diversity_ASUUM_TT_jitter](./00_FIGURES/FIG2_POPGEN_part_pi_diversity_ASUUM_TT_jitter.png)
