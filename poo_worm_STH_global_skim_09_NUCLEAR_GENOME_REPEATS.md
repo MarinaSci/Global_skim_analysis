@@ -187,7 +187,6 @@ for (file_path in ALL_TARGETS) {
 heatmap_for_aligned_seq_function(TARGET_ascaris_germline_repeat_FASTA_fasta, "ALUM GERMLINE \n > 90% similarity, > 90% coverage", "ALUM_germline_function") #this works
 heatmap_for_aligned_seq_function(TARGET_ascaris_wang_repeat_FASTA_fasta, "ALUM WANG \n > 90% similarity, > 90% coverage", "ALUM_WANG_function") #this works
 heatmap_for_aligned_seq_function(TARGET_ascaris_its1_amplicon_FASTA_fasta, "ALUM ITS1 \n > 90% similarity, > 90% coverage ", "ALUM_ITS1_function") #this works
-heatmap_for_aligned_seq_function(TARGET_ascaris_its1_amplicon_FASTA_fasta, "ALUM ITS1-b \n > 90% similarity, > 90% coverage", "ALUM_ITS1b_function") #this works
 
 #Trichuris
 heatmap_for_aligned_seq_function(TARGET_trichuris_trichiura_repeat_FASTA_fasta, "TT_repeat \n > 90% similarity, > 90% coverage", "TT_repeat_function")
@@ -198,4 +197,10 @@ heatmap_for_aligned_seq_function(TARGET_necator_its2_amplicon_FASTA_fasta, "NEC-
 heatmap_for_aligned_seq_function(TARGET_necator_smith_repeat_FASTA_fasta, "NEC-repeat \n > 90% similarity, > 90% coverage", "NEC_repeat_function")
 
 ```
-![ALUM_GERMINE](./00_FIGURES/ALUM_germline_function.pdf)
+![ALUM_GERMINE_REPEAT](./00_FIGURES/ALUM_germline_function.pdf)
+![ALUM_ITS1](./00_FIGURES/ALUM_ITS1_function.pdf)
+![ALUM_WANG_REPEAT](./00_FIGURES/ALUM_WANG_function.pdf)
+![TT_REPEAT](./00_FIGURES/TT_repeat_function.pdf)
+![TT_18S_TARGET](./00_FIGURES/TT_18S_function.pdf)
+![NEC_REPEAT](./00_FIGURES/NEC_repeat_function.pdf)
+![NEC_ITS2](./00_FIGURES/NEC_its2_function.pdf)
