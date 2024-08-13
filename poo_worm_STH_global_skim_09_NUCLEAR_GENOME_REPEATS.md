@@ -197,10 +197,10 @@ heatmap_for_aligned_seq_function(TARGET_necator_its2_amplicon_FASTA_fasta, "NEC-
 heatmap_for_aligned_seq_function(TARGET_necator_smith_repeat_FASTA_fasta, "NEC-repeat \n > 90% similarity, > 90% coverage", "NEC_repeat_function")
 
 ```
-![ALUM_GERMINE_REPEAT](./00_FIGURES/ALUM_germline_function.pdf)
-![ALUM_ITS1](./00_FIGURES/ALUM_ITS1_function.pdf)
-![ALUM_WANG_REPEAT](./00_FIGURES/ALUM_WANG_function.pdf)
-![TT_REPEAT](./00_FIGURES/TT_repeat_function.pdf)
-![TT_18S_TARGET](./00_FIGURES/TT_18S_function.pdf)
-![NEC_REPEAT](./00_FIGURES/NEC_repeat_function.pdf)
-![NEC_ITS2](./00_FIGURES/NEC_its2_function.pdf)
+- ![ALUM_GERMINE_REPEAT](./00_FIGURES/ALUM_germline_function.pdf)
+- ![ALUM_ITS1](./00_FIGURES/ALUM_ITS1_function.pdf)
+- ![ALUM_WANG_REPEAT](./00_FIGURES/ALUM_WANG_function.pdf)
+- ![TT_REPEAT](./00_FIGURES/TT_repeat_function.pdf)
+- ![TT_18S_TARGET](./00_FIGURES/TT_18S_function.pdf)
+- ![NEC_REPEAT](./00_FIGURES/NEC_repeat_function.pdf)
+- ![NEC_ITS2](./00_FIGURES/NEC_its2_function.pdf)
