@@ -2,7 +2,7 @@
 Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com 
 
 ## Contents: 
-- bash code to assess exon coverage in merged-by-country bam files
+- bash code to assess single copy exon coverage in merged-by-country bam files
 - bash code to assess repeat coverage in merged-by-country bam files
 - R code to normalise repeat coverage by single copy exon coverage (both the above)
 - Visualise in R
