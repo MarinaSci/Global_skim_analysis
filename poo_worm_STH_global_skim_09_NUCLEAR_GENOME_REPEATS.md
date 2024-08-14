@@ -5,6 +5,7 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 - Formatting genomes for nuclear mapping (code not shown for mapping; use the one for mtDNA mapping)
 - Repeat/target finding using *nucmer* 
 - Assess repeat/target similarity in the genome
+- Show repeat counts/location in scaffolds 
 
 - Downloaded updated genomes from ENA/Wormbase ParaSite
 - renamed them with fastaq enumerate
@@ -392,3 +393,5 @@ dev.off()
 
 ```
 ![NECATOR_TARGETS_STRUCTURE](./00_FIGURES/NECATOR_TARGETS_STRUCTURE.png)
+- spikes mean repeats/target is tandemly arranged (consecutive repeats)
+- further modifications on illustrator
