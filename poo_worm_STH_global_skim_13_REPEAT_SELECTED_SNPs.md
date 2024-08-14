@@ -104,7 +104,7 @@ ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_b_mean_freq_POS_country <- ALUM_REPEAT
   mutate(mean_freq_pos_country = mean(allele_frequency,na.rm = T))
 
 ```
-
+ 
 - Plotting *Ascaris* repeats 
 
 ```{r ALUM_REPEAT_3a_ALUM_REPEAT_3b_ALUM_REPEAT_23_REPEATS, fig.path = './00_FIGURES/'}
