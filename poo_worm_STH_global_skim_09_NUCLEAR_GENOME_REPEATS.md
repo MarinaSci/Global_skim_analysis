@@ -204,3 +204,190 @@ heatmap_for_aligned_seq_function(TARGET_necator_smith_repeat_FASTA_fasta, "NEC-r
 - ![TT_18S_TARGET](./00_FIGURES/TT_18S_function.pdf)
 - ![NEC_REPEAT](./00_FIGURES/NEC_repeat_function.pdf)
 - ![NEC_ITS2](./00_FIGURES/NEC_its2_function.pdf)
+
+
+### Target coverage and scaffold location 
+
+```bash
+#Make windows of the genome; it needs a genome file, not the genome per se. 
+#Take the .fai output of 
+samtools faidx ascaris_lumbricoides_renamed.fasta 
+#and take the first two columns (name of scaffold and size)
+#Use that for makewindows
+cut -f1,2 ascaris_lumbricoides_renamed.fasta.fai > ascaris_genome_file.fa
+
+#bedtools v2.30.0
+#break the genome into 10KB chunks
+bedtools makewindows -g ascaris_genome_file.fa -w 10000 > ascaris_10KB_window.bed
+
+#break down the nucmer coords by target
+#run the XXX_SPLIT.sh in the folder
+
+#and then run a loop for all the files
+#the .txt files are essentially the bed files, after splitting the "ascaris_15_cov90_edited_reordered_FINAL.bed" (and equivalents) 
+#based on the name of the repeat
+for bed in *.txt; do bedtools coverage -a ascaris_10KB_window.bed -b "$bed" -counts > "${bed%.*}_coverage.txt"; done
+```
+
+- Location and counts of targets in genomes
+- *Ascaris* targets
+```{r, warning= FALSE}
+#######################
+#ASCARIS LUMBRICOIDES #
+#######################
+
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/03_NUCLEAR_MAPPING/03_BEDTOOLS_TARGET_WINDOW_COVERAGE/01_ALUM/")
+
+ALUM_GERMLINE_TARGET_COV_1OKB_W <- read.table("TARGET_ascaris_germline_repeat_coverage.txt")
+colnames(ALUM_GERMLINE_TARGET_COV_1OKB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+ALUM_GERMLINE_TARGET_COV_1OKB_W$target <- 'ascaris_germline_repeat'
+
+ALUM_WANG_TARGET_COV_1OKB_W <- read.table("TARGET_ascaris_wang_repeat_coverage.txt")
+colnames(ALUM_WANG_TARGET_COV_1OKB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+ALUM_WANG_TARGET_COV_1OKB_W$target <- 'ascaris_wang_repeat'
+
+ALUM_ITS_TARGET_COV_1OKB_W <- read.table("TARGET_ascaris_its1_amplicon_coverage.txt")
+colnames(ALUM_ITS_TARGET_COV_1OKB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+ALUM_ITS_TARGET_COV_1OKB_W$target <- 'its1'
+#didn't load the other ITS because it's the same..?
+
+ALUM_ITSb_TARGET_COV_1OKB_W <- read.table("TARGET_ascaris_its1_amplicon_b_coverage.txt")
+colnames(ALUM_ITSb_TARGET_COV_1OKB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+ALUM_ITSb_TARGET_COV_1OKB_W$target  <- 'its1b'
+
+#select now the scaffolds for which counts >0 
+unique_chr_germline <- unique(ALUM_GERMLINE_TARGET_COV_1OKB_W$scaffold[ALUM_GERMLINE_TARGET_COV_1OKB_W$count > 0])
+unique_chr_wang <- unique(ALUM_WANG_TARGET_COV_1OKB_W$scaffold[ALUM_WANG_TARGET_COV_1OKB_W$count > 0])
+unique_chr_its1 <- unique(ALUM_ITS_TARGET_COV_1OKB_W$scaffold[ALUM_ITS_TARGET_COV_1OKB_W$count > 0])
+unique_chr_its1b <- unique(ALUM_ITSb_TARGET_COV_1OKB_W$scaffold[ALUM_ITSb_TARGET_COV_1OKB_W$count > 0])
+
+#select only the scaffolds that have the repeats and then bind the rows
+ALUM_GERMLINE_TARGET_COV_1OKB_W2 <- ALUM_GERMLINE_TARGET_COV_1OKB_W[ALUM_GERMLINE_TARGET_COV_1OKB_W$scaffold %in% unique_chr_germline, ]
+#ALUM_GERMLINE_TARGET_COV_1OKB_W3 <- ALUM_GERMLINE_TARGET_COV_1OKB_W2[order(ALUM_GERMLINE_TARGET_COV_1OKB_W2$scaffold),]
+
+custom_order <- c(
+  "3_ascaris_lumbricoides", "5_ascaris_lumbricoides", "17_ascaris_lumbricoides",
+  "23_ascaris_lumbricoides", "42_ascaris_lumbricoides", "51_ascaris_lumbricoides",
+  "52_ascaris_lumbricoides", "58_ascaris_lumbricoides", "142_ascaris_lumbricoides",
+  "155_ascaris_lumbricoides", "300_ascaris_lumbricoides"
+)
+
+ALUM_GERMLINE_TARGET_COV_1OKB_W2$scaffold <- factor(ALUM_GERMLINE_TARGET_COV_1OKB_W2$scaffold, levels = custom_order)
+
+ALUM_WANG_TARGET_COV_1OKB_W2 <- ALUM_WANG_TARGET_COV_1OKB_W[ALUM_WANG_TARGET_COV_1OKB_W$scaffold %in% unique_chr_wang, ]
+ALUM_ITS_TARGET_COV_1OKB_W2 <- ALUM_ITS_TARGET_COV_1OKB_W[ALUM_ITS_TARGET_COV_1OKB_W$scaffold %in% unique_chr_its1, ]
+ALUM_ITSb_TARGET_COV_1OKB_W2 <- ALUM_ITSb_TARGET_COV_1OKB_W[ALUM_ITSb_TARGET_COV_1OKB_W$scaffold %in% unique_chr_its1b, ]
+
+#bind them all
+#ALL_ASCARIS_TARGETS_10KB_W <- rbind(ALUM_GERMLINE_TARGET_COV_1OKB_W2,ALUM_WANG_TARGET_COV_1OKB_W2, ALUM_ITS_TARGET_COV_1OKB_W2, ALUM_ITSb_TARGET_COV_1OKB_W2)
+ALL_ASCARIS_TARGETS_10KB_W <- rbind(ALUM_GERMLINE_TARGET_COV_1OKB_W2, ALUM_ITS_TARGET_COV_1OKB_W2)
+
+
+```
+
+- *Ascaris* plot
+```{r ASCARIS_TARGETS_STRUCTURE_GERMLINE_ITS_ONLY, fig.path='./00_FIGURES/}
+png(filename = "00_FIGURES/ASCARIS_TARGETS_STRUCTURE_GERMLINE_ITS_ONLY.png", height = 7, width = 8, units = "in", res = 300)
+
+ggplot(ALL_ASCARIS_TARGETS_10KB_W,aes(scaffold_end, count))+
+  geom_point(size=1)+
+  geom_line(size=1)+
+  facet_grid(scaffold+ target ~.,  switch = "y")+#this will facet by both!! 
+  #  scale_color_viridis_d()+
+  theme(strip.text.y.left = element_text(angle = 0))+
+#scale_color_manual(values = c( "darkorchid4", "darkorange2")) +
+ # scale_color_manual(values = c("ascaris_germline_repeat" = "darkorange2", "its1" = "darkorchid4"))+
+  ggtitle("Ascaris lumbricoides - dx targets - ALL TARGETS FROM NUCMER \n no check for primer/probe binding sites")
+
+dev.off()
+
+```
+![ASCARIS_TARGETS_STRUCTURE_GERMLINE_ITS_ONLY](./00_FIGURES/ASCARIS_TARGETS_STRUCTURE_GERMLINE_ITS_ONLY.png)
+
+- *Trichuris* targets 
+```{r warning = FALSE}
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/03_NUCLEAR_MAPPING/03_BEDTOOLS_TARGET_WINDOW_COVERAGE/02_TT/")
+
+TT_REPEAT_TARGET_COV_1OKB_W <- read.table("TARGET_trichuris_trichiura_repeat_coverage.txt")
+colnames(TT_REPEAT_TARGET_COV_1OKB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+TT_REPEAT_TARGET_COV_1OKB_W$target <- 'repeat'
+
+
+TT_18S_TARGET_COV_1OKB_W <- read.table("TARGET_18S_trichuris_trichiura_coverage.txt")
+colnames(TT_18S_TARGET_COV_1OKB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+TT_18S_TARGET_COV_1OKB_W$target <- '18S'
+
+unique_chr_tt_repeat <- unique(TT_REPEAT_TARGET_COV_1OKB_W$scaffold[TT_REPEAT_TARGET_COV_1OKB_W$count > 0])
+unique_chr_tt_18S <- unique(TT_18S_TARGET_COV_1OKB_W$scaffold[TT_18S_TARGET_COV_1OKB_W$count > 0])
+
+TT_REPEAT_TARGET_COV_1OKB_W2 <-TT_REPEAT_TARGET_COV_1OKB_W[TT_REPEAT_TARGET_COV_1OKB_W$scaffold %in% unique_chr_tt_repeat, ]
+TT_18S_TARGET_COV_1OKB_W2 <-TT_18S_TARGET_COV_1OKB_W[TT_18S_TARGET_COV_1OKB_W$scaffold %in% unique_chr_tt_18S, ]
+
+ALL_TT_TARGETS_10KB_W <- rbind(TT_REPEAT_TARGET_COV_1OKB_W2,TT_18S_TARGET_COV_1OKB_W2 )
+
+```
+
+- *Trichuris* plot
+```{r TRICHURIS_TARGETS_STRUCTURE, fig.path='./00_FIGURES/}
+png(filename = "00_FIGURES/TRICHURIS_TARGETS_STRUCTURE.png", height = 7, width = 8, units = "in", res = 300)
+
+ggplot(ALL_TT_TARGETS_10KB_W,aes(scaffold_end, count))+
+  geom_point(size=1)+
+  geom_line(size=1)+
+  facet_grid(scaffold+ target ~.,  switch = "y")+#this will facet by both!! 
+  #  scale_color_viridis_d()+
+  theme(strip.text.y.left = element_text(angle = 0))+
+#scale_color_manual(values = c( "darkorchid4", "darkorange2")) +
+ # scale_color_manual(values = c("ascaris_germline_repeat" = "darkorange2", "its1" = "darkorchid4"))+
+  ggtitle("Trichuris trichiura - dx targets - ALL TARGETS FROM NUCMER \n no check for primer/probe binding sites")
+
+dev.off()
+
+```
+![TRICHURIS_TARGETS_STRUCTURE](./00_FIGURES/TRICHURIS_TARGETS_STRUCTURE.png)
+
+- *Necator* targets 
+
+```{r warning = FALSE}
+######################
+#NECATOR AMERICANUS  #
+######################
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/03_NUCLEAR_MAPPING/03_BEDTOOLS_TARGET_WINDOW_COVERAGE/04_NEC/")
+
+NEC_REPEAT_TARGET_COV_10KB_W <- read.table("TARGET_necator_smith_repeat_coverage.txt")
+colnames(NEC_REPEAT_TARGET_COV_10KB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+NEC_REPEAT_TARGET_COV_10KB_W$target <- 'repeat'
+
+NEC_ITS2_TARGET_COV_10KB_W <- read.table("TARGET_necator_its2_amplicon_coverage.txt")
+colnames(NEC_ITS2_TARGET_COV_10KB_W) <- c("scaffold", "scaffold_start", "scaffold_end", "count")
+NEC_ITS2_TARGET_COV_10KB_W$target <- 'its2'
+
+unique_chr_na_repeat <- unique(NEC_REPEAT_TARGET_COV_10KB_W$scaffold[NEC_REPEAT_TARGET_COV_10KB_W$count > 0])
+unique_chr_na_ITS2 <- unique(NEC_ITS2_TARGET_COV_10KB_W$scaffold[NEC_ITS2_TARGET_COV_10KB_W$count > 0])
+
+NEC_REPEAT_TARGET_COV_10KB_W2 <- NEC_REPEAT_TARGET_COV_10KB_W[NEC_REPEAT_TARGET_COV_10KB_W$scaffold %in% unique_chr_na_repeat, ]
+NEC_ITS2_TARGET_COV_10KB_W2 <- NEC_ITS2_TARGET_COV_10KB_W[NEC_ITS2_TARGET_COV_10KB_W$scaffold %in% unique_chr_na_ITS2, ]
+
+ALL_NEC_TARGETS_10KB_W3 <- rbind(NEC_REPEAT_TARGET_COV_10KB_W2,NEC_ITS2_TARGET_COV_10KB_W2 )
+
+```
+
+- *Necator* plot
+
+```{r NECATOR_TARGETS_STRUCTURE, fig.path='./00_FIGURES/}
+png(filename = "00_FIGURES/NECATOR_TARGETS_STRUCTURE.png", height = 7, width = 8, units = "in", res = 300)
+
+ggplot(ALL_NEC_TARGETS_10KB_W3,aes(scaffold_end, count))+
+  geom_point(size=1)+
+  geom_line(size=1)+
+  facet_grid(scaffold+ target ~.,  switch = "y")+#this will facet by both!! 
+  #  scale_color_viridis_d()+
+  theme(strip.text.y.left = element_text(angle = 0))+
+#scale_color_manual(values = c( "darkorchid4", "darkorange2")) +
+ # scale_color_manual(values = c("ascaris_germline_repeat" = "darkorange2", "its1" = "darkorchid4"))+
+  ggtitle("Necator americanus - dx targets - ALL TARGETS FROM NUCMER \n no check for primer/probe binding sites")
+
+dev.off()
+
+```
+![NECATOR_TARGETS_STRUCTURE](./00_FIGURES/NECATOR_TARGETS_STRUCTURE.png)
