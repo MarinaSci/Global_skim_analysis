@@ -109,7 +109,7 @@ ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_b_mean_freq_POS_country <- ALUM_REPEAT
 
 ```{r ALUM_REPEAT_3a_ALUM_REPEAT_3b_ALUM_REPEAT_23_REPEATS, fig.path = './00_FIGURES/'}
 
-png(filename = "00_FIGURES/ALUM_REPEAT_3a_ALUM_REPEAT_3b_ALUM_REPEAT_23_REPEATS.PNG", height = 8, width = 10, units = "in", res = 300)
+png(filename = "00_FIGURES/ALUM_REPEAT_3a_ALUM_REPEAT_3b_ALUM_REPEAT_23_REPEATS.png", height = 8, width = 10, units = "in", res = 300)
 ALUM_MAIN_PLOT_3_a <- ggplot(ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_a_mean_freq_POS_country, 
                          aes(x = POS, y = allele_frequency)) +
   facet_grid(country ~ .) +
