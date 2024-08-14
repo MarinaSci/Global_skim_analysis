@@ -7,10 +7,11 @@ Author: Marina Papaiakovou, mpapaiakovou[at]gmail.com
 - Assess repeat/target similarity in the genome
 - Show repeat counts/location in scaffolds 
 
-- Downloaded updated genomes from ENA/Wormbase ParaSite
-- renamed them with fastaq enumerate
 
 ```bash
+#- Downloaded updated genomes from ENA/Wormbase ParaSite
+#- renamed them with fastaq enumerate
+
 fastaq enumerate_names duodenale.fa duodenale_renamed.fa --suffix _duodenale
 #https://github.com/sanger-pathogens/Fastaq
 
