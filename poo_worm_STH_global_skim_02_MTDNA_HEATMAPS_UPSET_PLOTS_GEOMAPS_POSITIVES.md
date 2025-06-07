@@ -261,6 +261,13 @@ dev.off()
 ```
 ![Heatmap](./00_FIGURES/FAECAL_HEATMAP.png)
 
+```{r}
+#SAVE DATASET FOR SOURCE DATA FOR NATCOMMS
+write_csv(as.data.frame(ph1_matrix_transposed), "FIGURE_1_C_FAECAL_HEATMAP_READ_DATA.csv") #needs to be transposed
+write_csv(X175_samples_non_zero_reads_countrynames_trasnposed, "FIGURE_1_C_FAECAL_HEATMAP_COUNTRY_DATA.csv")
+
+```
+
 ### Complex heatmap for worm/egg data
 ``` {r  warning = FALSE}
 #STEP 4: COMPLEX HEATMAP FOR WORMS/EGG DATA  ----
