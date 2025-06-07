@@ -564,6 +564,8 @@ longitudes_latitudes_faecal <- longitudes_latitudes %>%
   filter(data_type =="faecal")
 faecal_pos_per_country_per_species_nozeros_long_lat <- left_join(faecal_pos_per_country_per_species_nozeros, longitudes_latitudes_faecal, by = "country")
 
+#write_csv(faecal_pos_per_country_per_species_nozeros_long_lat, "SUPPLEMENTARY_FIGURE_2_faecal_pos_per_country_per_species_nozeros_long_lat.csv")
+
 ```
 
 # FAECAL PLOT
@@ -690,4 +692,11 @@ dev.off()
 ```
 ![FAECAL_GEOMAP](./00_FIGURES/Genome_skimming_countries_EVERYTHING_WORM_EGG_POSITIVE_DATA_FILTERED_FOR_NORMALISED_READS_OVER_10_ZOOMED_IN.png)
 
+```{r}
 
+EVERYTHING <- rbind(faecal_pos_per_country_per_species_nozeros_long_lat,worm_egg_pos_per_country_per_species_nozeros_long_lat )
+
+write_csv(EVERYTHING, "SUPPLEMENTARY_FIGURE_2_A_B_FAECAL_WORM_pos_per_country_per_species_nozeros_long_lat.csv")
+
+
+```
