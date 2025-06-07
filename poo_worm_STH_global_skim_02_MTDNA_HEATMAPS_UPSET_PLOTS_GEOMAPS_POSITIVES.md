@@ -693,6 +693,7 @@ dev.off()
 ![FAECAL_GEOMAP](./00_FIGURES/Genome_skimming_countries_EVERYTHING_WORM_EGG_POSITIVE_DATA_FILTERED_FOR_NORMALISED_READS_OVER_10_ZOOMED_IN.png)
 
 ```{r}
+#SAVE THE DATASETS TO GENERATE SOURCE CODE FOR NATCOMMS
 
 EVERYTHING <- rbind(faecal_pos_per_country_per_species_nozeros_long_lat,worm_egg_pos_per_country_per_species_nozeros_long_lat )
 
