@@ -263,8 +263,15 @@ dev.off()
 
 ```{r}
 #SAVE DATASET FOR SOURCE DATA FOR NATCOMMS
-write_csv(as.data.frame(ph1_matrix_transposed), "FIGURE_1_C_FAECAL_HEATMAP_READ_DATA.csv") #needs to be transposed
-write_csv(X175_samples_non_zero_reads_countrynames_trasnposed, "FIGURE_1_C_FAECAL_HEATMAP_COUNTRY_DATA.csv")
+#write_csv(as.data.frame(ph1_matrix_transposed), "FIGURE_1_C_FAECAL_HEATMAP_READ_DATA.csv") #needs to be transposed
+#write_csv(X175_samples_non_zero_reads_countrynames_trasnposed, "FIGURE_1_C_FAECAL_HEATMAP_COUNTRY_DATA.csv")
+
+#save file with trimmed reads 
+write_csv(hum_samples_id_reads_n, "FIGURE_1_C_D_SAMPLE_IDs_MITO_TRIMMED_READS.csv") #needs to be transposed
+
+#save file with normalised mitogenome mapped reads 
+write_csv(hum_mito_data_country_norm_ordered, "FIGURE_1_C_D_NORMALISED_MITO_READS_COUNTRY_CONTINENT.csv") 
+
 
 ```
 
