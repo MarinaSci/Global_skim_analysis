@@ -30,6 +30,20 @@ faecal_data <- longitudes_latitudes %>%
 
 worm_egg_data <- longitudes_latitudes %>%
   filter(data_type =='worm_egg')
+  
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+# Create directory if it doesn't exist
+
+if (!dir.exists(“02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create(“02_SOURCE_DATA_FOR_FIGURES")
+}
+
+# Save heatmap data
+write.csv(faecal_data,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1A.csv",
+          row.names = TRUE)
+
 
 ```
 
@@ -85,6 +99,19 @@ worm_egg_plot <- ggplot() +
                                         size = 0.5), 
         panel.background = element_rect(fill = "aliceblue")) 
 # facet_grid(~data_type)
+
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+# Create directory if it doesn't exist
+
+if (!dir.exists(“02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create(“02_SOURCE_DATA_FOR_FIGURES")
+}
+
+# Save heatmap data
+write.csv(worm_egg_data,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1B.csv",
+          row.names = TRUE)
 
 
 #CALL THEM TOGETHER 
