@@ -1,13 +1,13 @@
-"","sample_type","country_1","country_2","mean_dxy_per_country_combo"
-"1","pools","Cameroon","Mozambique",0.44429
-"2","pools","Cameroon","South Africa",0.370066
-"3","pools","Mozambique","South Africa",0.182236
-"4","pools","Mozambique","Mozambique",0
-"5","pools","South Africa","South Africa",0
-"6","pools","Cameroon","Cameroon",0
-"7","indv","China","China",0.0125893002380952
-"8","indv","China","Honduras",0.0647012042678571
-"9","indv","Honduras","Honduras",0.0211386515714286
-"10","indv","Honduras","Uganda",0.107476924730769
-"11","indv","China","Uganda",0.108892875296703
-"12","indv","Uganda","Uganda",0.0165561381282051
+"","sample_type","country_1","country_2","mean_dxy_per_country_combo","species"
+"1","pools","Cameroon","Mozambique",0.44429,"Trichuris_trichiura"
+"2","pools","Cameroon","South Africa",0.370066,"Trichuris_trichiura"
+"3","pools","Mozambique","South Africa",0.182236,"Trichuris_trichiura"
+"4","pools","Mozambique","Mozambique",0,"Trichuris_trichiura"
+"5","pools","South Africa","South Africa",0,"Trichuris_trichiura"
+"6","pools","Cameroon","Cameroon",0,"Trichuris_trichiura"
+"7","indv","China","China",0.0125893002380952,"Trichuris_trichiura"
+"8","indv","China","Honduras",0.0647012042678571,"Trichuris_trichiura"
+"9","indv","Honduras","Honduras",0.0211386515714286,"Trichuris_trichiura"
+"10","indv","Honduras","Uganda",0.107476924730769,"Trichuris_trichiura"
+"11","indv","China","Uganda",0.108892875296703,"Trichuris_trichiura"
+"12","indv","Uganda","Uganda",0.0165561381282051,"Trichuris_trichiura"
