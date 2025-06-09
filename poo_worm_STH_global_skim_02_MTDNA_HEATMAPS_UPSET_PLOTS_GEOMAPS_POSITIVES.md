@@ -728,9 +728,21 @@ dev.off()
 ```{r}
 #SAVE THE DATASETS TO GENERATE SOURCE CODE FOR NATCOMMS
 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+          
 EVERYTHING <- rbind(faecal_pos_per_country_per_species_nozeros_long_lat,worm_egg_pos_per_country_per_species_nozeros_long_lat )
 
-write_csv(EVERYTHING, "SUPPLEMENTARY_FIGURE_2_A_B_FAECAL_WORM_pos_per_country_per_species_nozeros_long_lat.csv")
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(EVERYTHING,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_2.csv",
+          row.names = TRUE)
+          
+#write_csv(EVERYTHING, "SUPPLEMENTARY_FIGURE_2_A_B_FAECAL_WORM_pos_per_country_per_species_nozeros_long_lat.csv")
 
 
 ```
