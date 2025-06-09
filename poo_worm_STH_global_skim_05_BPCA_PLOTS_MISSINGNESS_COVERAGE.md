@@ -103,18 +103,19 @@ BPCA_ALUM_KOR  <- PROCESSED_PCA_OBJ[[3]]
 # Create directory if it doesn't exist
 # Generating the tables to feed into the code to generate the plot 
 # Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
 
 if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
   dir.create("02_SOURCE_DATA_FOR_FIGURES")
 }
 # Save data
 write.csv(BPCA_TT,
-          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_6C.csv",
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_6C.csv",
           row.names = TRUE)
 
 # Save data
 write.csv(BPCA_ALUM_KOR,
-          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_3C.csv",
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_3C.csv",
           row.names = TRUE)
           
 
@@ -271,6 +272,18 @@ color_breaks <- c(100, 1000, 10000, 1000000)
 #REMOVE STRONGY HERE CAUSE WE WILL NOT BE INLCUDING IT ON THE PAPER 
 final_df_ALUM_TT <- final_df %>%
   filter(chrom!="NC_028624_Strongyloides_stercoralis_isolate_PV001_mitochondrion")
+
+
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(final_df_ALUM_TT,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_3D_6D.csv",
+          row.names = TRUE)
 
 ```
 
