@@ -272,17 +272,17 @@ write_csv(hum_samples_id_reads_n, "FIGURE_1_C_D_SAMPLE_IDs_MITO_TRIMMED_READS.cs
 #save file with normalised mitogenome mapped reads 
 #write_csv(hum_mito_data_country_norm_ordered, "FIGURE_1_C_D_NORMALISED_MITO_READS_COUNTRY_CONTINENT.csv") 
 # Create directory if it doesn't exist
-if (!dir.exists("SOURCE_DATA_FOR_FIGURES")) {
-  dir.create("SOURCE_DATA_FOR_FIGURES")
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
 }
 
 # Save heatmap data
 write.csv(ph1_matrix_transposed,
-          file = "SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1C.csv",
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1C.csv",
           row.names = TRUE)
 
-write.csv(ann, file = "SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1C_COUNTRY_ANN.csv", row.names = FALSE)
-write.csv(ann_continent, file = "SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1C_CONTINENT_ANN.csv", row.names = FALSE)
+write.csv(ann, file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1C_COUNTRY_ANN.csv", row.names = FALSE)
+write.csv(ann_continent, file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1C_CONTINENT_ANN.csv", row.names = FALSE)
 
 
 ```
@@ -374,6 +374,19 @@ colnames(ann2_continent_transposed) <- c("continent", "continent",
 
 country_list_worm_samples_country_transposed$country<- factor(country_list_worm_samples_country$country, levels = unique(country_list_worm_samples_country$country))
 country_list_worm_samples_continent_transposed$continent <- factor(country_list_worm_samples_continent$continent, levels = unique(country_list_worm_samples_continent$continent))
+
+# Create directory if it doesn't exist
+if (!dir.exists(“02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create(“02_SOURCE_DATA_FOR_FIGURES")
+}
+
+# Save heatmap data
+write.csv(ch2_matrix_transposed, file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1D.csv",
+          row.names = TRUE)
+
+write.csv(ann2_country_transposed, file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1D_COUNTRY_ANN.csv", row.names = FALSE)
+write.csv(ann2_continent_transposed, file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1D_CONTINENT_ANN.csv", row.names = FALSE)
+
 
 ```
 
