@@ -271,7 +271,11 @@ write_csv(hum_samples_id_reads_n, "FIGURE_1_C_D_SAMPLE_IDs_MITO_TRIMMED_READS.cs
 
 #save file with normalised mitogenome mapped reads 
 #write_csv(hum_mito_data_country_norm_ordered, "FIGURE_1_C_D_NORMALISED_MITO_READS_COUNTRY_CONTINENT.csv") 
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+
 # Create directory if it doesn't exist
+
 if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
   dir.create("02_SOURCE_DATA_FOR_FIGURES")
 }
@@ -374,6 +378,9 @@ colnames(ann2_continent_transposed) <- c("continent", "continent",
 
 country_list_worm_samples_country_transposed$country<- factor(country_list_worm_samples_country$country, levels = unique(country_list_worm_samples_country$country))
 country_list_worm_samples_continent_transposed$continent <- factor(country_list_worm_samples_continent$continent, levels = unique(country_list_worm_samples_continent$continent))
+
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
 
 # Create directory if it doesn't exist
 if (!dir.exists(“02_SOURCE_DATA_FOR_FIGURES")) {
