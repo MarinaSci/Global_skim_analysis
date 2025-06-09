@@ -371,7 +371,7 @@ if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
   dir.create("02_SOURCE_DATA_FOR_FIGURES")
 }
 
-# Save heatmap data
+# Save data
 write.csv(TT_DXY_BOTH,
           file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_6_A_B.csv",
           row.names = TRUE)

@@ -108,7 +108,7 @@ if (!dir.exists(“02_SOURCE_DATA_FOR_FIGURES")) {
   dir.create(“02_SOURCE_DATA_FOR_FIGURES")
 }
 
-# Save heatmap data
+# Save data
 write.csv(worm_egg_data,
           file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_1B.csv",
           row.names = TRUE)

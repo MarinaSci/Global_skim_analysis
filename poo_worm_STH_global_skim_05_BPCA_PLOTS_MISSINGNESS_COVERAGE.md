@@ -100,6 +100,24 @@ PROCESSED_PCA_OBJ <- lapply(bpca_results, TRANSFORM_PCA_DATASETS) #ok this works
 BPCA_TT <- PROCESSED_PCA_OBJ[[1]]
 BPCA_ALUM_KOR  <- PROCESSED_PCA_OBJ[[3]]
 
+# Create directory if it doesn't exist
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(BPCA_TT,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_6C.csv",
+          row.names = TRUE)
+
+# Save data
+write.csv(BPCA_ALUM_KOR,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_3C.csv",
+          row.names = TRUE)
+          
+
 ```
 
 - *Ascaris* BPCA plot, without any filter on allele frequency 
@@ -119,6 +137,7 @@ BPCA_ALUM_KOR_PLOT <- ggplot(BPCA_ALUM_KOR, aes(PC1, PC2, color = country)) +
 
 print(BPCA_ALUM_KOR_PLOT)
 dev.off()
+
   
 ```
 ![BPCA_ALUM_KOR.png](./00_FIGURES/BPCA_ALUM_KOR.png)
