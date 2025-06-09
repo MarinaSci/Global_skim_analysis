@@ -239,6 +239,7 @@ dev.off()
 
 #Combine individuals and pools 
 ALUM_DXY_BOTH <- rbind(ALUM_DXY_simplified_indv,ALUM_DXY_simplified_pools )
+ALUM_DXY_BOTH$species <- 'Ascaris_lumbricoides'
 
 setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
 
@@ -359,6 +360,8 @@ setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_
 
 
 TT_DXY_BOTH <- rbind(TT_DXY_simplified_pools, TT_DXY_simplified_indv) 
+TT_DXY_BOTH$species <- 'Trichuris_trichiura'
+
 
 # Create directory if it doesn't exist
 # Generating the tables to feed into the code to generate the plot 
