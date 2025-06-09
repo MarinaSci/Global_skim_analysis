@@ -457,6 +457,25 @@ test_w_clean_l_2_w_forupset3 <- data.frame(test_w_clean_l_2_w_forupset2)
 samples <- test_w_clean_l_2_w_forupset3
 species <- colnames(samples)[2:8] #change this depending hwo many species you have
 
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(samples,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_1A_partI.csv",
+          row.names = TRUE)
+
+write.csv(species,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_1A_partII.csv",
+          row.names = TRUE)
+
 ```
 # Faecal data - ComplexUpset Plot
 ```{r SUPPLEMENTARY_FIGURE_1_UPSET_PLOT_ONLY_FAECAL, fig.path='./00_FIGURES/'}
@@ -503,6 +522,25 @@ ch2_df_w_clean_l_2_w_forupset3 <- data.frame(ch2_df_w_clean_l_2_w_forupset2)
 
 samples_worms <- ch2_df_w_clean_l_2_w_forupset3
 species_worms <- colnames(samples_worms)[2:8] #change this dependig hwo many species you have
+
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(samples_worms,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_1B_partI.csv",
+          row.names = TRUE)
+
+write.csv(species_worms,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_1B_partII.csv",
+          row.names = TRUE)
+          
 
 ```
 # Worm/egg data - ComplexUpset Plot
