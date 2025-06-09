@@ -236,6 +236,26 @@ ALUM_BOTH <- ALUM_ALL_DXY_POOLS_PLOT / ALUM_ALL_DXY_INDV_PLOT
 
 print(ALUM_BOTH)
 dev.off()
+
+#Combine individuals and pools 
+ALUM_DXY_BOTH <- rbind(ALUM_DXY_simplified_indv,ALUM_DXY_simplified_pools )
+
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+
+# Save heatmap data
+write.csv(ALUM_DXY_BOTH,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_3_A_B.csv",
+          row.names = TRUE)
+
+
 ```
 ![ALUM_ALL_DXY_POOLS_INDIVIDUALS.png](00_FIGURES/ALUM_ALL_DXY_POOLS_INDIVIDUALS.png)
 
@@ -335,6 +355,25 @@ dev.off()
 ```{r}
 #SAVE THE DATASETS TO GENERATE SOURCE CODE FOR NATCOMMS
 
-ALUM_TT_DXY_HEATMAPS_DATA <- rbind(ALUM_DXY_HEATMAP, TT_DXY_HEATMAP)
-write_csv(ALUM_TT_DXY_HEATMAPS_DATA, "SUPPLEMENTARY_FIGURE_3_A_B_ALUM_TT_DXY_HEATMAPS_DATA.csv")
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+
+TT_DXY_BOTH <- rbind(TT_DXY_simplified_pools, TT_DXY_simplified_indv) 
+
+# Create directory if it doesn't exist
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+
+# Save heatmap data
+write.csv(TT_DXY_BOTH,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_6_A_B.csv",
+          row.names = TRUE)
+
+
+
+
 ```
