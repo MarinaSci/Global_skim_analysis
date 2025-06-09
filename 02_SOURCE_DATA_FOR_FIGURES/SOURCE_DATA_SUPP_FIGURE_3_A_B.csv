@@ -1,0 +1,14 @@
+"","sample_type","country_1","country_2","mean_dxy_per_country_combo"
+"1","indv","Ecuador","Ethiopia",0.0027253665
+"2","indv","Ethiopia","Ethiopia",0.001090147
+"3","indv","Ecuador","Kenya",0.00329387101470588
+"4","indv","Ethiopia","Kenya",0.00435935375735294
+"5","indv","Kenya","Kenya",0.00476452376865671
+"6","indv","Ecuador","Ecuador",0
+"7","pools","Mozambique","Mozambique",0.0826694
+"8","pools","Myanmar","Mozambique",0.10217601
+"9","pools","Myanmar","Myanmar",0.120792562222222
+"10","pools","Mozambique","South Africa",0.09533032
+"11","pools","Myanmar","South Africa",0.120254994
+"12","pools","South Africa","South Africa",0.11651412
+"13","pools","Mozambique","Myanmar",0.10217601
