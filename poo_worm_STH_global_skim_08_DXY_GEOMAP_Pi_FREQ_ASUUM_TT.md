@@ -121,6 +121,22 @@ TT_mean_dxy_all <- TT_dxy_data2_long_lat %>%
 #Keep only the countries that are mutual between the two species pools
 global_skim_countries4 <- global_skim_countries3 %>% 
   filter(country %in% c("Mozambique", "South Africa","Cameroon", "Myanmar"))
+  
+  
+#save the dataset 
+ASUUM_TT_Dxy_ALL <- rbind(ASUUM_mean_dxy_all, TT_mean_dxy_all)
+
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(ASUUM_TT_Dxy_ALL,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_2A.csv",
+          row.names = TRUE)
+
 
 ```
 - Plot the Dxy geomap 
@@ -233,9 +249,25 @@ library(patchwork)
 INDV_Pi_ALL <- Pi_function("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/04_VARIANT_CALLING/01_MITOGENOME_VARS/13_POPGEN_DATA_FOR_FIGURES/02_ASUUM_US_TT_DATA/INDV_Pi_ASUUM_TT.txt")
 POOLS_Pi_ALL <- Pi_function("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/04_VARIANT_CALLING/01_MITOGENOME_VARS/13_POPGEN_DATA_FOR_FIGURES/02_ASUUM_US_TT_DATA/POOLS_Pi_ASUUM_TT.txt")
 
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(INDV_Pi_ALL,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_2B_partI.csv",
+          row.names = TRUE)
+
+write.csv(POOLS_Pi_ALL,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_2B_partII.csv",
+          row.names = TRUE)
+
 
 png(filename = "00_FIGURES/FIG2_POPGEN_part_pi_diversity_ASUUM_TT_jitter.png", height = 2, width = 6, units = "in", res = 300)
-
 
 INDV_Pi_plot <- ggplot(data = INDV_Pi_ALL, aes(x = country, y = pi, color= chrom)) +
 #ggtitle("INDV") +
@@ -298,6 +330,25 @@ INDV_SNP_FREQ$chrom[INDV_SNP_FREQ$chrom == 'NC_001327_Ascaris_suum_mitochondrion
 POOLS_SNP_FREQ <- SNP_frequency_function("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/02_DATA/02_TRIMMED_DATA/04_VARIANT_CALLING/01_MITOGENOME_VARS/13_POPGEN_DATA_FOR_FIGURES/02_ASUUM_US_TT_DATA/POOLS_SNP_FREQ_ASUUM_TT.txt")
 POOLS_SNP_FREQ$chrom[POOLS_SNP_FREQ$chrom == 'NC_017750_Trichuris_trichiura_mitochondrion_complete_genome'] <- 'Trichuris trichiura'
 POOLS_SNP_FREQ$chrom[POOLS_SNP_FREQ$chrom == 'NC_001327_Ascaris_suum_mitochondrion_genome_USA'] <- 'Ascaris suum - USA'
+
+
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(INDV_SNP_FREQ,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_2C_partI.csv",
+          row.names = TRUE)
+
+write.csv(POOLS_SNP_FREQ,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_2C_partII.csv",
+          row.names = TRUE)
+
 
 ```
 
