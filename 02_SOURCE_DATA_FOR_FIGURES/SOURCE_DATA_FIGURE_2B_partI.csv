@@ -1,0 +1,7 @@
+"","chrom","snp_count","pi","sample_id","country","sample_type"
+"1","Trichuris trichiura",NA,0.0125893,"CHN_X","China","indv"
+"2","Trichuris trichiura",NA,0.021138216,"HND_X","Honduras","indv"
+"3","Trichuris trichiura",NA,0.017774427,"UGA_X","Uganda","indv"
+"4","Ascaris suum - USA",0,NA,"ECU_X","Ecuador","indv"
+"5","Ascaris suum - USA",13,0.001090147,"ETH_X","Ethiopia","indv"
+"6","Ascaris suum - USA",41231,0.001828412,"KEN_X","Kenya","indv"
