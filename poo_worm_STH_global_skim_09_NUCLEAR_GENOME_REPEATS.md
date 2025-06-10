@@ -198,6 +198,24 @@ heatmap_for_aligned_seq_function(TARGET_18S_trichuris_trichiura_FASTA_fasta, "TT
 heatmap_for_aligned_seq_function(TARGET_necator_its2_amplicon_FASTA_fasta, "NEC-ITS2 \n > 90% similarity, > 90% coverage", "NEC_its2_function")
 heatmap_for_aligned_seq_function(TARGET_necator_smith_repeat_FASTA_fasta, "NEC-repeat \n > 90% similarity, > 90% coverage", "NEC_repeat_function")
 
+#save the files 
+# Generating the files/tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+
+writeXStringSet(TARGET_ascaris_germline_repeat_FASTA_fasta, file="./02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_3_A_TARGET_ascaris_germline_repeat_FASTA_fasta")
+
+writeXStringSet(TARGET_trichuris_trichiura_repeat_FASTA_fasta, file="./02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_3_C_TARGET_trichuris_trichiura_repeat_FASTA_fasta")
+
+writeXStringSet(TARGET_necator_smith_repeat_FASTA_fasta, file="./02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_3_B_TARGET_necator_smith_repeat_FASTA_fasta")
+
+
+
 ```
 - Click for individual similarity matrix/heatmaps below, per target tested: 
 - ![ALUM_GERMINE_REPEAT](./00_FIGURES/ALUM_germline_function.pdf)
