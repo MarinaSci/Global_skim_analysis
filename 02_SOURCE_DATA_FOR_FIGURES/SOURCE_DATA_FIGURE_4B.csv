@@ -1,0 +1,7 @@
+"","Target_name","mean_efficiency","test","type_SNP","scaffold","repeat_type","sample_name"
+"1","Ascaris_3a_original",92.336367,"var1","no_SNP","3a","repeat_1","3a_wt"
+"2","Ascaris_3a_mutated",95.232839,"var1","SNP","3a","repeat_1","3a_mutated"
+"3","Ascaris_3b_original",92.50042333,"var2","no_SNP","3b","repeat_2","3b_wt"
+"4","Ascaris_3b_mutated",92.90829878,"var2","SNP","3b","repeat_2","3b_mutated"
+"5","Ascaris_23_original",91.538809,"var3","no_SNP","23","repeat_3","23_wt"
+"6","Ascaris_23_mutated",83.867112,"var3","SNP","23","repeat_3","23_mutated"

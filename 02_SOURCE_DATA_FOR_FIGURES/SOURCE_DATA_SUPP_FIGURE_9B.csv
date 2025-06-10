@@ -1,0 +1,8 @@
+"","Target_name","mean_efficiency","test","type_SNP","scaffold","repeat_type","sample_name"
+"1","Trichuris_canonical",89.4,"canonical","canonical","canonical","canonical","canonical"
+"2","Trichuris_52_original",98.764,"var1","no_SNP","52","repeat_1","52_wt"
+"3","Trichuris_52_mutated",0,"var1","SNP","52","repeat_1","52_mutated"
+"4","Trichuris_56_original",96.751,"var2","no_SNP","56","repeat_2","56_wt"
+"5","Trichuris_56_mutated",0,"var2","SNP","56","repeat_2","56_mutated"
+"6","Trichuris_102_original",77.266,"var3","no_SNP","102","repeat_3","102_wt"
+"7","Trichuris_102_mutated",0,"var3","SNP","102","repeat_3","102_mutated"

@@ -63,6 +63,18 @@ efficiencies$sample_name <- factor(efficiencies$sample_name, levels = c("canonic
 efficiencies <- efficiencies %>%
   filter(sample_name != "canonical")
 
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(efficiencies,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_4B.csv",
+          row.names = TRUE)
 
 ```
 
@@ -223,6 +235,19 @@ bind_data2 <- bind_data2 %>%
 
 bind_data2$sample_name <- factor(bind_data2$sample_name, levels = c("3a_wt", "3a_mutated", "3b_wt", "3b_mutated", "23_wt", "23_mutated"))
 
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(bind_data2,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_4C.csv",
+          row.names = TRUE)
+
 
 ```
 - Fold-loss in *Ascaris* due to SNP presence
@@ -297,6 +322,20 @@ trichuris_efficiencies$sample_name <- factor(trichuris_efficiencies$sample_name,
 #will drop the canonical repeat
 #trichuris_efficiencies <- trichuris_efficiencies %>%
  # filter(sample_name != "canonical")
+ 
+ 
+ # Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(trichuris_efficiencies,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_9B.csv",
+          row.names = TRUE)
 
 
 ```
@@ -544,6 +583,19 @@ tt_all_for_plotting <- read.csv("Trichuris_bind_data2_Cq45_edited.csv")
 
 #add levels
 tt_all_for_plotting$sample_name <- factor(tt_all_for_plotting$sample_name, levels = c("canonical", "52_wt", "52_mutated", "56_wt", "56_mutated", "102_wt", "102_mutated"))
+
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(tt_all_for_plotting,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_9C.csv",
+          row.names = TRUE)
 
 
 ```

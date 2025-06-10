@@ -1,0 +1,7 @@
+"","scaffold","type_SNP","mean_normalized_Cq_change","repeat_type","sample_name"
+"1","3a","SNP",615.133046047741,"repeat_1","3a_mutated"
+"2","3b","SNP",1124.3494013493,"repeat_2","3b_mutated"
+"3","23","SNP",50.7668976211704,"repeat_3","23_mutated"
+"4","3a","no_SNP",1,"repeat_1","3a_wt"
+"5","3b","no_SNP",1,"repeat_2","3b_wt"
+"6","23","no_SNP",1,"repeat_3","23_wt"
