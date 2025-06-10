@@ -290,3 +290,46 @@ dev.off()
 - SNPs had to be on the 3' end where the primer sits (up to 5 bp)
 - Looked at the mismatch (C-C, A-G etc)
 - Frequency of variant present - wanted the variant to be present (high depth) in many samples/countries but not all of them as that would indicate a fixed change
+- Save data as tables to regenerate figures 
+
+```{r warning = FALSE}
+
+#adding scaffold details so it's not confusing for Ascaris 
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_a_mean_freq_POS_country$scaffold <- '3a'
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_23_mean_freq_POS_country$scaffold <- '23'
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_b_mean_freq_POS_country$scaffold <- '3b'
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_a_mean_freq_POS_country$species <- 'Ascaris_lumbricoides'
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_23_mean_freq_POS_country$species <- 'Ascaris_lumbricoides'
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_b_mean_freq_POS_country$species <- 'Ascaris_lumbricoides'
+
+
+TT_REPEAT_VAR_FREQs_filtered_scaffold_52_mean_freq_POS_country$scaffold <- '52'
+TT_REPEAT_VAR_FREQs_filtered_scaffold_56_mean_freq_POS_country$scaffold <- '56'
+TT_REPEAT_VAR_FREQs_filtered_scaffold_102_mean_freq_POS_country$scaffold <- '102'
+TT_REPEAT_VAR_FREQs_filtered_scaffold_52_mean_freq_POS_country$species <- 'Trichuris_trichiura'
+TT_REPEAT_VAR_FREQs_filtered_scaffold_56_mean_freq_POS_country$species <- 'Trichuris_trichiura'
+TT_REPEAT_VAR_FREQs_filtered_scaffold_102_mean_freq_POS_country$species <- 'Trichuris_trichiura'
+
+ALL_REPEATS_WITH_VARIANTS_TT_ALUM <- rbind(ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_a_mean_freq_POS_country,
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_23_mean_freq_POS_country,
+ALUM_REPEAT_VAR_FREQs_filtered_scaffold_3_b_mean_freq_POS_country,
+TT_REPEAT_VAR_FREQs_filtered_scaffold_52_mean_freq_POS_country,
+TT_REPEAT_VAR_FREQs_filtered_scaffold_56_mean_freq_POS_country,
+TT_REPEAT_VAR_FREQs_filtered_scaffold_102_mean_freq_POS_country)
+
+#combine all datasets now 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(ALL_REPEATS_WITH_VARIANTS_TT_ALUM,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_4A_SUPP_FIGURE_9A.csv",
+          row.names = TRUE)
+
+
+
+```
