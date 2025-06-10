@@ -129,6 +129,21 @@ ASUUM_ALL_unique_countries_2_indv <- ASUUM_DXY_simplified_indv %>%
 ASUUM_ALL_unique_countries_pools <- union(ASUUM_ALL_unique_countries_1_pools, ASUUM_ALL_unique_countries_2_pools)
 ASUUM_ALL_unique_countries_indv <- union(ASUUM_ALL_unique_countries_1_indv, ASUUM_ALL_unique_countries_2_indv)
 
+#save the tables to generate Supp Fig 5A,B 
+ASUUM_DXY_BOTH <- rbind(ASUUM_DXY_simplified_pools,ASUUM_DXY_simplified_indv)
+
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(ASUUM_DXY_BOTH,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_5_A_B.csv",
+          row.names = TRUE)
+
 
 ```
 
