@@ -643,40 +643,40 @@ pixy --stats dxy --vcf ASUUM_US_82SAMPLES_bcftools_for_pixy_NOMINIMUMALLELEFREQ_
 - See mean Dxy values for the *Asuum* positive samples in the next script 
 
 #
-#```{r warning = FALSE}
-#
-## Generating the tables to feed into the code to generate the plot 
-#
-##SAVE THE DATA FOR THE PLOT 
-#
-## Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
-#setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANA#LYSIS")
-#
-## Create directory if it doesn't exist
-#if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
-#  dir.create("02_SOURCE_DATA_FOR_FIGURES")
-#}
-## Save data
-#write.csv(KOREA_US_TANZANIA_results_l4,
-#          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_4A.csv",
-#          row.names = TRUE)
-#
-## Save data
-#write.csv(ALUM_PC1_PC2_JOINED,
-#          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_4B.csv",
-#          row.names = TRUE)
-#
-#
-## Save data
-#write.csv(ASUUM_US_82SAMPLES_PC1_PC2,
-#          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_5C.csv",
-#          row.names = TRUE)
-#          
-#
-##SAVE THE DATA FOR THE PLOT
-## Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
-#write.csv(ASUUM_82SAMPLES_merged_data_normalised_missingness,
-#          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_5D.csv",
-#          row.names = TRUE)
-#
-#```
+```{r warning = FALSE}
+
+# Generating the tables to feed into the code to generate the plot 
+
+#SAVE THE DATA FOR THE PLOT 
+
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_AN#LYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(KOREA_US_TANZANIA_results_l4,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_4A.csv",
+          row.names = TRUE)
+
+# Save data
+write.csv(ALUM_PC1_PC2_JOINED,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_4B.csv",
+          row.names = TRUE)
+
+
+# Save data
+write.csv(ASUUM_US_82SAMPLES_PC1_PC2,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_5C.csv",
+          row.names = TRUE)
+          
+
+#SAVE THE DATA FOR THE PLOT
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+write.csv(ASUUM_82SAMPLES_merged_data_normalised_missingness,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_5D.csv",
+          row.names = TRUE)
+
+``
