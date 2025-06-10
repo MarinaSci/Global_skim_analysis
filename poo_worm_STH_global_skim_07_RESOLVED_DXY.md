@@ -143,8 +143,6 @@ if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
 write.csv(ASUUM_DXY_BOTH,
           file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_5_A_B.csv",
           row.names = TRUE)
-
-
 ```
 
 ```{r POPGEN_ASUUM_POOLS_INDV_HEATMAP_DXY,  fig.path='./00_FIGURES/' }
