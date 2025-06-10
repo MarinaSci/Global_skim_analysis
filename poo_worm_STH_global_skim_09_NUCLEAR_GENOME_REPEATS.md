@@ -310,6 +310,7 @@ ALL_ASCARIS_TARGETS_10KB_W <- rbind(ALUM_GERMLINE_TARGET_COV_1OKB_W2, ALUM_ITS_T
 ```{r ASCARIS_TARGETS_STRUCTURE_GERMLINE_ITS_ONLY, fig.path='./00_FIGURES/}
 png(filename = "00_FIGURES/ASCARIS_TARGETS_STRUCTURE_GERMLINE_ITS_ONLY.png", height = 7, width = 8, units = "in", res = 300)
 
+library(tidyverse)
 ggplot(ALL_ASCARIS_TARGETS_10KB_W,aes(scaffold_end, count))+
   geom_point(size=1)+
   geom_line(size=1)+
@@ -414,3 +415,28 @@ dev.off()
 ![NECATOR_TARGETS_STRUCTURE](./00_FIGURES/NECATOR_TARGETS_STRUCTURE.png)
 - spikes mean repeats/target is tandemly arranged (consecutive repeats)
 - further modifications on illustrator
+
+```{r}
+#saving all the tables from above to recreate the figures 
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+
+ALL_NEC_TARGETS_10KB_W3$species <- 'Necator_americanus'
+ALL_TT_TARGETS_10KB_W$species <- 'Trichuris_trichiura'
+ALL_ASCARIS_TARGETS_10KB_W$species <- 'Ascaris_lumbricoides'
+ALL_SPECIES_SCAFFOLD_DATA_REPEAT_LOCATION <- rbind(ALL_ASCARIS_TARGETS_10KB_W, ALL_NEC_TARGETS_10KB_W3,ALL_TT_TARGETS_10KB_W)
+
+write.csv(ALL_SPECIES_SCAFFOLD_DATA_REPEAT_LOCATION,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_7.csv",
+          row.names = TRUE)
+
+
+
+```
