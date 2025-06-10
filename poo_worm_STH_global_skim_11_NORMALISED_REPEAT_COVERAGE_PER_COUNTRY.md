@@ -329,3 +329,22 @@ dev.off()
 
 ```
 ![NORM_REPEAT_COPIES_PRIMER_PROBE_SITE_FILTERED_BETWEEN_SPECIES_RAW_READ_COUNTS_OVER_10](./00_FIGURES/NORM_REPEAT_COPIES_PRIMER_PROBE_SITE_FILTERED_BETWEEN_SPECIES_RAW_READ_COUNTS_OVER_10.png)
+
+- save source data to generate the plot 
+
+```{r warning = FALSE}
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(ALL_SPECIES_TARGET_COV_COMBINED_W_EXON_COVERAGE_FINAL_NORMALISATION,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_FIGURE_3_D_E_F.csv",
+          row.names = TRUE)
+
+```
+
