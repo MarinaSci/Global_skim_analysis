@@ -61,6 +61,22 @@ KOREA_US_TANZANIA_results_l4 <- KOREA_US_TANZANIA_results_l3 %>%
   group_by(country) %>%
   mutate(total_read_counts = sum(normalised),
          percentage = normalised / total_read_counts)
+         
+         
+#SAVE THE DATA FOR THE PLOT 
+
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(KOREA_US_TANZANIA_results_l4,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_4A.csv",
+          row.names = TRUE)
+
 
 ```
 
@@ -231,6 +247,22 @@ ASCARIS_REFs_ALL_l_SUM_w$Ascaris_suum_US_percentage <- (ASCARIS_REFs_ALL_l_SUM_w
 
 #Now need to match the PC1, PC2 dataset with the above
 ALUM_PC1_PC2_JOINED <- left_join(ALUM_PC1_PC2, ASCARIS_REFs_ALL_l_SUM_w, by = "sample.id")
+
+
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+
+
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(ALUM_PC1_PC2_JOINED,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_4B.csv",
+          row.names = TRUE)
 
 
 ```
