@@ -438,5 +438,4 @@ write.csv(ALL_SPECIES_SCAFFOLD_DATA_REPEAT_LOCATION,
           row.names = TRUE)
 
 
-
 ```
