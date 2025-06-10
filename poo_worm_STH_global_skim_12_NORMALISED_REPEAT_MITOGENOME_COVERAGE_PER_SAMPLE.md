@@ -402,3 +402,20 @@ dev.off()
 ```
 ![BOTH_WORMS_EGGS_NORMALISED_MITO_COV_Vs_NORM_REPEAT_COV_WITHIN_SPECIES_FILTER_RAW_READ_COUNTS_OVER_10_W_STATS_NO_FILTER_ON_MITO_REPEAT_GENOME_COPIES](./00_FIGURES/BOTH_WORMS_EGGS_NORMALISED_MITO_COV_Vs_NORM_REPEAT_COV_WITHIN_SPECIES_FILTER_RAW_READ_COUNTS_OVER_10_W_STATS_NO_FILTER_ON_MITO_REPEAT_GENOME_COPIES.png)
 - Beautify on illustrator (worms = adults)
+- saving data to regenerate Supp Fig 8 
+
+```{r warning = FALSE}
+# Generating the tables to feed into the code to generate the plot 
+# Tables can be found in directory O2_SOURCE_DATA_FOR_FIGURES
+setwd("/Users/marinapapaiakovou/Documents/00.Cambridge_PhD/02.Science/02.Genome_skimming/07.Global_genome_skim_2023/03_CODE_CLEAN/GLOBAL_SKIM_ANALYSIS")
+
+# Create directory if it doesn't exist
+if (!dir.exists("02_SOURCE_DATA_FOR_FIGURES")) {
+  dir.create("02_SOURCE_DATA_FOR_FIGURES")
+}
+# Save data
+write.csv(COMBINED_REPEAT_MITO_DATASET_BOTH_EGGS_WORMS_STATS,
+          file = "02_SOURCE_DATA_FOR_FIGURES/SOURCE_DATA_SUPP_FIGURE_8.csv",
+          row.names = TRUE)
+
+```
